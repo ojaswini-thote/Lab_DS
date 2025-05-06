@@ -1,0 +1,20 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define MAX 100
+struct node{
+int vertex;
+struct node* next;
+};
+typedef struct node* GNODE;
+GNODE graph[MAX];
+int visited[MAX];
+void DFS(int v){
+	visited[v]=1;
+	printf("\n%d",v);
+	GNODE p=graph[v];
+	while(p!=NULL){
+		if(!visited[p->vertex])
+			DFS(p->vertex);
+		p=p->next;
+	}
+}
